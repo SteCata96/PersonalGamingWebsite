@@ -729,64 +729,69 @@ export default function App() {
       )}
 
       <footer
-        className="w-full min-h-fit lg:min-h-screen pb-10"
+        className="w-full min-h-fit pb-10"
         style={{
           background: `linear-gradient( to bottom, #000000 0%, #000000 9%, #1f1f1f 18%, #515151 27%,  #838383 36%, #999999 45%, #999999 100%)`
         }}
       >
-        {/* logo */}
-        <img
-          src={logo}
-          alt="Logo"
-          className="w-auto p-4 h-[75px] object-contain "
-        />
+        <div className="max-w-[1440px] mx-auto px-6 sm:px-12 lg:px-20 flex flex-col justify-between">
+          {/* Top: Logo */}
+          <div className="pt-10">
+            <img
+              src={logo}
+              alt="Logo"
+              className="w-auto h-[60px] sm:h-[75px] object-contain"
+            />
+          </div>
 
-        <div className="flex flex-col lg:flex-row mt-10 gap-10 px-5 lg:px-20 items-center lg:items-end">
-          {/* Contact Info */}
-          <div className="flex flex-col mt-10 lg:mt-20 lg:w-1/3 w-full">
-            <h2 className="font-extrabold text-[24px] sm:text-[28px] lg:text-[32px] mt-6 text-white text-left">
-              Contact
-            </h2>
-            <p className="
-              text-xs sm:text-sm md:text-base lg:text-lg 
-              mt-2 
-              break-words 
-              max-w-full text-white text-left">
-              stefanocatania@nxtframestudio.com
-            </p>
-            <a 
-              href="https://www.linkedin.com/in/stefano-catania/" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="text-xs sm:text-sm md:text-base lg:text-lg mt-2 text-white hover:text-cyan-400 transition-colors duration-300 text-left flex items-center gap-2 w-fit font-medium"
-            >
-              LinkedIn: stefano-catania
-            </a>
+          {/* Middle: Content */}
+          <div className="flex flex-col lg:flex-row mt-10 gap-10 items-center lg:items-end justify-between">
+            {/* Contact Info */}
+            <div className="flex flex-col lg:w-1/2 w-full space-y-6">
+              <div>
+                <h2 className="font-extrabold text-[24px] sm:text-[28px] lg:text-[32px] text-white">
+                  Contact
+                </h2>
+                <p className="text-sm sm:text-base lg:text-lg mt-2 break-words text-white">
+                  stefanocatania@nxtframestudio.com
+                </p>
+                <a 
+                  href="https://www.linkedin.com/in/stefano-catania/" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="text-sm sm:text-base lg:text-lg mt-2 text-white hover:text-cyan-400 transition-colors duration-300 flex items-center gap-2 w-fit font-medium"
+                >
+                  LinkedIn: stefano-catania
+                </a>
+              </div>
 
-            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center w-full sm:w-[354px] mt-8 sm:mt-20 gap-2 sm:gap-0 text-left">
-              <span className="font-extrabold text-[16px] sm:text-[18px] lg:text-[20px] text-white">
-                STEFANO CATANIA
-              </span>
-              <span className="font-extrabold text-[12px] sm:text-[14px] text-white">
-                BASED IN ITALY
-              </span>
+              <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-8 pt-4">
+                <span className="font-extrabold text-[16px] sm:text-[18px] lg:text-[20px] text-white">
+                  STEFANO CATANIA
+                </span>
+                <span className="font-extrabold text-[12px] sm:text-[14px] text-white/80">
+                  BASED IN ITALY
+                </span>
+              </div>
+            </div>
+
+            {/* Profile Image - Sit flush with bottom or aligned nicely */}
+            <div className="flex justify-center lg:justify-end lg:w-1/2 w-full">
+              <img
+                src={profile}
+                alt="Profile"
+                className="w-[300px] sm:w-[400px] lg:w-[500px] h-auto object-contain"
+              />
             </div>
           </div>
 
-          {/* Profile Image Container - Aligned right in the remaining 2/3 space */}
-          <div className="flex justify-center lg:justify-end lg:w-2/3 w-full">
-            <img
-              src={profile}
-              alt="Profile"
-              className="w-[350px] h-auto sm:w-[450px] lg:w-[600px] object-cover"
-            />
+          {/* Bottom: Copyright */}
+          <div className="border-t border-white/10 mt-10 pt-6">
+            <p className="text-base sm:text-lg lg:text-xl text-white/50">
+              © All rights reserved
+            </p>
           </div>
         </div>
-
-        {/* Footer Copyright */}
-        <p className="text-base sm:text-lg lg:text-xl mt-6 xl:mt-4 pb-4 xl:pb-3 pl-5 text-center md:text-left text-white/50">
-          © All rights reserved
-        </p>
       </footer>
     </div>
 
