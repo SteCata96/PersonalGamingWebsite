@@ -265,10 +265,6 @@ export default function App() {
           {/* Top Logo Section */}
           <div>
             <div className="flex items-center gap-3">
-              <h1 className="uppercase sm:text-[2vw] lg:text-[1.2vw]">
-                NXT Frame Studio
-              </h1>
-
               <img
                 src={logo}
                 alt="logo"
@@ -297,7 +293,7 @@ export default function App() {
               </div>
 
               <p className="sm:text-[3vw] md:text-[3vw] lg:text-[1.1vw] leading-relaxed">
-                I'm a 3D Artist specialized in stylized environments and props, with solid experience in creating immersive worlds for games and visual projects.
+                I'm a 3D Artist specialized in environments and props, with solid experience in creating immersive worlds for games and visual projects.
               </p>
 
             </div>
@@ -745,9 +741,9 @@ export default function App() {
           className="w-auto p-4 h-[75px] object-contain "
         />
 
-        <div className="flex flex-col lg:flex-row mt-10 gap-10 px-5 lg:px-20">
+        <div className="flex flex-col lg:flex-row mt-10 gap-10 px-5 lg:px-20 items-center lg:items-end">
           {/* Contact Info */}
-          <div className="flex flex-col mt-10 lg:mt-20 lg:w-1/3">
+          <div className="flex flex-col mt-10 lg:mt-20 lg:w-1/3 w-full">
             <h2 className="font-extrabold text-[24px] sm:text-[28px] lg:text-[32px] mt-6 text-white text-left">
               Contact
             </h2>
@@ -758,9 +754,16 @@ export default function App() {
               max-w-full text-white text-left">
               stefanocatania@nxtframestudio.com
             </p>
+            <a 
+              href="https://www.linkedin.com/in/stefano-catania/" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-xs sm:text-sm md:text-base lg:text-lg mt-2 text-white hover:text-cyan-400 transition-colors duration-300 text-left flex items-center gap-2 w-fit font-medium"
+            >
+              LinkedIn: stefano-catania
+            </a>
 
-
-            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center w-full sm:w-[354px] mt-8 sm:mt-20 gap-2 sm:gap-0 mx-auto lg:mx-0">
+            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center w-full sm:w-[354px] mt-8 sm:mt-20 gap-2 sm:gap-0 text-left">
               <span className="font-extrabold text-[16px] sm:text-[18px] lg:text-[20px] text-white">
                 STEFANO CATANIA
               </span>
@@ -770,8 +773,8 @@ export default function App() {
             </div>
           </div>
 
-          {/* Profile Image Container - Centered in the remaining 2/3 space */}
-          <div className="flex justify-center items-center lg:w-2/3">
+          {/* Profile Image Container - Aligned right in the remaining 2/3 space */}
+          <div className="flex justify-center lg:justify-end lg:w-2/3 w-full">
             <img
               src={profile}
               alt="Profile"
