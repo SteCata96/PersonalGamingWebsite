@@ -1,4 +1,4 @@
-import { useState, useEffect ,useRef} from "react";
+import { useState, useEffect, useRef } from "react";
 import logo from "./assets/logo.png";
 import momentuLogo from "./assets/momentu-logo.png";
 import meta from "./assets/meta-logo.png";
@@ -43,9 +43,9 @@ const skills = [
 ];
 
 export default function App() {
-  
 
-// Inside your App function:
+
+  // Inside your App function:
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const [loading, setLoading] = useState(true);
   const [isDesktop, setIsDesktop] = useState(window.innerWidth > 1029);
@@ -53,79 +53,79 @@ export default function App() {
   //const videoRef = useRef<HTMLVideoElement | null>(null);
 
   useEffect(() => {
-  const video = videoRef.current;
-  if (!video) return;
+    const video = videoRef.current;
+    if (!video) return;
 
-  // 1. Force muted again (iOS fix)
-  video.defaultMuted = true;
-  video.muted = true;
+    // 1. Force muted again (iOS fix)
+    video.defaultMuted = true;
+    video.muted = true;
 
-  const handlePlay = async () => {
-    try {
-      await video.play();
-    } catch (_error) {
-      // 2. Fallback: Play on first user interaction
-      const playOnGesture = () => {
-        video.play();
-        ['click', 'touchstart', 'keydown'].forEach(evt => 
-          window.removeEventListener(evt, playOnGesture)
+    const handlePlay = async () => {
+      try {
+        await video.play();
+      } catch (_error) {
+        // 2. Fallback: Play on first user interaction
+        const playOnGesture = () => {
+          video.play();
+          ['click', 'touchstart', 'keydown'].forEach(evt =>
+            window.removeEventListener(evt, playOnGesture)
+          );
+        };
+
+        ['click', 'touchstart', 'keydown'].forEach(evt =>
+          window.addEventListener(evt, playOnGesture)
         );
-      };
+      }
+    };
 
-      ['click', 'touchstart', 'keydown'].forEach(evt => 
-        window.addEventListener(evt, playOnGesture)
-      );
+    if (!loading) {
+      handlePlay();
     }
-  };
-
-  if (!loading) {
-    handlePlay();
-  }
-}, [loading]);
+  }, [loading]);
 
 
 
   useEffect(() => {
-  const attemptPlay = () => {
-    if (videoRef.current) {
-      // Force attributes directly into the DOM node
-      videoRef.current.setAttribute("muted", "");
-      videoRef.current.setAttribute("playsinline", "");
-      videoRef.current.setAttribute("webkit-playsinline", "");
-      videoRef.current.muted = true;
+    const attemptPlay = () => {
+      if (videoRef.current) {
+        // Force attributes directly into the DOM node
+        videoRef.current.setAttribute("muted", "");
+        videoRef.current.setAttribute("playsinline", "");
+        videoRef.current.setAttribute("webkit-playsinline", "");
+        videoRef.current.muted = true;
 
-      // Force play
-      const playPromise = videoRef.current.play();
+        // Force play
+        const playPromise = videoRef.current.play();
 
-      if (playPromise !== undefined) {
-        playPromise.catch(() => {
-          // If autoplay fails (e.g., Low Power Mode), 
-          // we listen for a single click anywhere on the screen to start it
-          console.log("Autoplay prevented, waiting for user interaction");
-          const startVideo = () => {
-            if (videoRef.current) {
-              const playPromise = videoRef.current.play();
-              if (playPromise !== undefined) {
-                playPromise.catch(() => {
-                  console.log("User interaction play failed");
-                });
+        if (playPromise !== undefined) {
+          playPromise.catch(() => {
+            // If autoplay fails (e.g., Low Power Mode), 
+            // we listen for a single click anywhere on the screen to start it
+            console.log("Autoplay prevented, waiting for user interaction");
+            const startVideo = () => {
+              if (videoRef.current) {
+                const playPromise = videoRef.current.play();
+                if (playPromise !== undefined) {
+                  playPromise.catch(() => {
+                    console.log("User interaction play failed");
+                  });
+                }
               }
-            }
-            window.removeEventListener("click", startVideo);
-            window.removeEventListener("touchstart", startVideo);
-          };
-          window.addEventListener("click", startVideo);
-          window.addEventListener("touchstart", startVideo);
-        });
+              window.removeEventListener("click", startVideo);
+              window.removeEventListener("touchstart", startVideo);
+            };
+            window.addEventListener("click", startVideo);
+            window.addEventListener("touchstart", startVideo);
+          });
+        }
       }
-    }
-  };
+    };
 
-  if (!loading) {
-    attemptPlay();
-  }
-}, [loading]);
-//iphone video
+    if (!loading) {
+      attemptPlay();
+    }
+  }, [loading]);
+  //iphone video
   useEffect(() => {
     const handleResize = () => {
       setIsDesktop(window.innerWidth > 1029);
@@ -181,10 +181,10 @@ export default function App() {
     videoLoader.src = video1;
     videoLoader.preload = "auto";
     videoLoader.muted = true; // Essential for browser pre-approval
-  
+
     // 'onloadeddata' ensures the first frame is ready
     videoLoader.onloadeddata = () => {
-    checkLoaded();
+      checkLoaded();
     };
 
     videoLoader.onerror = () => {
@@ -239,24 +239,24 @@ export default function App() {
 
         {/* Background Video - Enhanced iOS Compatibility */}
         <video
-  ref={videoRef}
-  loop
-  muted
-  playsInline
-  webkit-playsinline="true"
-  preload="auto"
-  autoPlay
-  onLoadedMetadata={(e) => {
-    e.currentTarget.muted = true;
-  }}
-  className="absolute inset-0 w-full h-full object-cover pointer-events-none"
-  style={{
-    objectFit: "cover",
-    backgroundColor: "black" 
-  }}
->
-  <source src={video1} type="video/mp4" />
-</video>
+          ref={videoRef}
+          loop
+          muted
+          playsInline
+          webkit-playsinline="true"
+          preload="auto"
+          autoPlay
+          onLoadedMetadata={(e) => {
+            e.currentTarget.muted = true;
+          }}
+          className="absolute inset-0 w-full h-full object-cover pointer-events-none"
+          style={{
+            objectFit: "cover",
+            backgroundColor: "black"
+          }}
+        >
+          <source src={video1} type="video/mp4" />
+        </video>
 
 
         {/* Overlay Content */}
@@ -447,9 +447,9 @@ export default function App() {
               alt=""
               className="w-full h-full object-cover"
             />
-             <div className="absolute bottom-4 left-4 flex items-center gap-2">
-               <img src={togetherLogo} alt="Together Labs" className="h-8 sm:h-12 object-contain" />
-             </div>
+            <div className="absolute bottom-4 left-4 flex items-center gap-2">
+              <img src={togetherLogo} alt="Together Labs" className="h-8 sm:h-12 object-contain" />
+            </div>
           </div>
 
           <div className="w-full md:w-1/2 flex flex-col sm:flex-row items-stretch gap-2">
@@ -459,9 +459,9 @@ export default function App() {
                 alt=""
                 className="w-full h-full object-cover"
               />
-               <div className="absolute bottom-4 left-4 flex items-center gap-2">
-                 <img src={togetherLogo} alt="Together Labs" className="h-8 sm:h-12 object-contain" />
-               </div>
+              <div className="absolute bottom-4 left-4 flex items-center gap-2">
+                <img src={togetherLogo} alt="Together Labs" className="h-8 sm:h-12 object-contain" />
+              </div>
             </div>
             <div className="flex-1 relative group">
               <img
@@ -469,9 +469,9 @@ export default function App() {
                 alt=""
                 className="w-full h-full object-cover"
               />
-               <div className="absolute bottom-4 left-4 flex items-center gap-2">
-                 <img src={togetherLogo} alt="Together Labs" className="h-8 sm:h-12 object-contain" />
-               </div>
+              <div className="absolute bottom-4 left-4 flex items-center gap-2">
+                <img src={togetherLogo} alt="Together Labs" className="h-8 sm:h-12 object-contain" />
+              </div>
             </div>
           </div>
         </div>
@@ -500,19 +500,19 @@ export default function App() {
             alt="Background"
             className="absolute inset-0 w-full h-full object-cover"
           />
-          
+
           {/* Layer 1: Base Darkening */}
           <div className="absolute inset-0 bg-black/40 z-0" />
 
           {/* Layer 2: Pronounced Cyan Atmospheric Glow (Figma Smoky Effect) */}
-          <div 
+          <div
             className="absolute inset-x-0 top-[10%] h-[70%] pointer-events-none z-0 opacity-70"
             style={{
               background: 'radial-gradient(ellipse at 50% 50%, rgba(21, 175, 222, 0.5) 0%, rgba(21, 175, 222, 0.2) 40%, transparent 70%)',
               filter: 'blur(100px)'
             }}
           />
-          <div 
+          <div
             className="absolute inset-x-0 top-[30%] h-[50%] pointer-events-none z-0 opacity-50"
             style={{
               background: 'radial-gradient(ellipse at 30% 50%, rgba(21, 175, 222, 0.4) 0%, transparent 60%)',
@@ -586,7 +586,7 @@ export default function App() {
 
                 <div className="relative w-full flex justify-center pb-0">
                   {/* Enhanced & Taller Smokey Background */}
-                  <div 
+                  <div
                     className="pointer-events-none absolute inset-0 -top-20 -bottom-32"
                     style={{
                       background: 'linear-gradient(to bottom, rgba(21, 175, 222, 0) 0%, rgba(21, 175, 222, 0.8) 25%, rgba(10, 82, 115, 0.6) 50%, rgba(5, 41, 58, 0.4) 75%, rgba(0, 0, 0, 0.85) 100%)',
@@ -638,7 +638,7 @@ export default function App() {
                   className="w-auto h-[60px] sm:h-[75px] object-contain"
                 />
               </div>
-              
+
               <div className="w-full flex justify-center px-4 sm:px-6">
                 <div className="max-w-[95%] sm:max-w-[85%]">
                   <h2
@@ -681,10 +681,10 @@ export default function App() {
                 <div className="relative w-full max-w-[600px] mx-auto">
                   <img src={render2} className="w-full" alt="Render 2" />
                   <div className="relative w-full mt-4">
-                    <img 
-                      src={img17} 
-                      className="w-full h-auto object-contain" 
-                      alt="Workflow" 
+                    <img
+                      src={img17}
+                      className="w-full h-auto object-contain"
+                      alt="Workflow"
                     />
                   </div>
                 </div>
@@ -700,7 +700,7 @@ export default function App() {
 
                 <div className="relative w-full flex justify-center pb-0">
                   {/* Enhanced Gradient Synced with Desktop */}
-                  <div 
+                  <div
                     className="pointer-events-none absolute inset-0 -top-10 -bottom-24"
                     style={{
                       background: 'linear-gradient(to bottom, rgba(21, 175, 222, 0) 0%, rgba(21, 175, 222, 0.8) 25%, rgba(10, 82, 115, 0.6) 50%, rgba(5, 41, 58, 0.4) 75%, rgba(0, 0, 0, 0.85) 100%)',
@@ -753,12 +753,12 @@ export default function App() {
                   Contact
                 </h2>
                 <p className="text-sm sm:text-base lg:text-lg mt-2 break-words text-white">
-                  stefanocatania@nxtframestudio.com
+                  sc.creativestudio@cataniastefano.com
                 </p>
-                <a 
-                  href="https://www.linkedin.com/in/stefano-catania/" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
+                <a
+                  href="https://www.linkedin.com/in/stefano-catania/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-sm sm:text-base lg:text-lg mt-2 text-white hover:text-cyan-400 transition-colors duration-300 flex items-center gap-2 w-fit font-medium"
                 >
                   LinkedIn: stefano-catania
