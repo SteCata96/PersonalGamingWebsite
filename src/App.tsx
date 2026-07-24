@@ -282,6 +282,9 @@ export default function App() {
             <div className="mt-[3vh] sm:max-w-[80%]  lg:max-w-[40%] space-y-[1.5vh]">
 
               <div className="flex gap-6 items-center">
+                <span className="text-red-500 font-extrabold text-2xl bg-yellow-300 px-3 py-1 border-2 border-red-600">
+                  TEST
+                </span>
                 <h3 className="font-extrabold
             text-[4vw] sm:text-[2.5vw] lg:text-[1.5vw]">
                   STEFANO CATANIA
