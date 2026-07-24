@@ -15,7 +15,7 @@ import img9 from "./assets/img9.png";
 import img10 from "./assets/img10.png";
 import img11 from "./assets/img11.jpg";
 import img17 from "./assets/img17.png"
-import video1 from "./assets/Orc_Video.mp4";
+import video1 from "./assets/Orc_VIdeo_Opt.mp4";
 import profile from "./assets/profile.png";
 import horrorBg from "./assets/horrorBg.jpg";
 import render from './assets/render.png'
@@ -293,7 +293,7 @@ export default function App() {
               </div>
 
               <p className="sm:text-[3vw] md:text-[3vw] lg:text-[1.1vw] leading-relaxed">
-                I'm a 3D Artist specialized in environments and props, with solid experience in creating immersive worlds for games and visual projects.
+                I'm a 3D Artist specialized in environments, props, and cinematic trailers, with solid experience in creating immersive worlds for games and visual projects.
               </p>
 
             </div>
