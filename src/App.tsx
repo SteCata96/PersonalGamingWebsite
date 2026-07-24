@@ -272,7 +272,7 @@ export default function App() {
               />
             </div>
 
-            <h2 className="text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)] text-[6vw] sm:text-[4vw] lg:text-[2.5vw]">
+            <h2 style={{ color: 'white', textShadow: '0px 2px 10px rgba(0,0,0,0.9)' }} className="text-white text-[6vw] sm:text-[4vw] lg:text-[2.5vw]">
               CREATING GAME ART
             </h2>
           </div>
@@ -282,16 +282,16 @@ export default function App() {
             <div className="mt-[3vh] sm:max-w-[80%]  lg:max-w-[40%] space-y-[1.5vh]">
 
               <div className="flex gap-6 items-center">
-                <h3 className="font-extrabold text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)] text-[4vw] sm:text-[2.5vw] lg:text-[1.5vw]">
+                <h3 style={{ color: 'white', textShadow: '0px 2px 10px rgba(0,0,0,0.9)' }} className="font-extrabold text-white text-[4vw] sm:text-[2.5vw] lg:text-[1.5vw]">
                   STEFANO CATANIA
                 </h3>
 
-                <span className="text-white/90 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)] text-[2.5vw] sm:text-[1.3vw] lg:text-[0.8vw]">
+                <span style={{ color: 'white', textShadow: '0px 2px 8px rgba(0,0,0,0.8)' }} className="text-white text-[2.5vw] sm:text-[1.3vw] lg:text-[0.8vw]">
                   SENIOR 3D ARTIST
                 </span>
               </div>
 
-              <p className="text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)] sm:text-[3vw] md:text-[3vw] lg:text-[1.1vw] leading-relaxed">
+              <p style={{ color: 'white', textShadow: '0px 2px 10px rgba(0,0,0,0.9)' }} className="text-white sm:text-[3vw] md:text-[3vw] lg:text-[1.1vw] leading-relaxed">
                 I'm a 3D Artist specialized in environments, props, and cinematic trailers, with solid experience in creating immersive worlds for games and visual projects.
               </p>
 
@@ -300,7 +300,7 @@ export default function App() {
 
           {/* Bottom Trusted Section */}
           <div className="flex justify-center">
-            <p className="text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)] text-[3vw] sm:text-[2vw] lg:text-[1.2vw]">
+            <p style={{ color: 'white', textShadow: '0px 2px 8px rgba(0,0,0,0.9)' }} className="text-white text-[3vw] sm:text-[2vw] lg:text-[1.2vw]">
               TRUSTED BY
             </p>
           </div>
