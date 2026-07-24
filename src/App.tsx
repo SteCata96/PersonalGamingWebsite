@@ -282,12 +282,11 @@ export default function App() {
             <div className="mt-[3vh] sm:max-w-[80%]  lg:max-w-[40%] space-y-[1.5vh]">
 
               <div className="flex gap-6 items-center">
-                <h3 className="font-extrabold
-            text-[4vw] sm:text-[2.5vw] lg:text-[1.5vw]">
+                <h3 className="font-extrabold text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)] text-[4vw] sm:text-[2.5vw] lg:text-[1.5vw]">
                   STEFANO CATANIA
                 </h3>
 
-                <span className="text-[2.5vw] sm:text-[1.3vw] lg:text-[0.8vw]">
+                <span className="text-white/90 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)] text-[2.5vw] sm:text-[1.3vw] lg:text-[0.8vw]">
                   SENIOR 3D ARTIST
                 </span>
               </div>
